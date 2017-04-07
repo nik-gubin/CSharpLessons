@@ -7,36 +7,7 @@ namespace CSharp3
 {
     class Program
     {
-        static void Calculate(ref int numValueOne, ref int
-numValueTwo)
-        {
-            numValueOne = numValueOne * 2;
-            numValueTwo = numValueTwo / 2;
-        }
-
-        static void Calculate(int numValueOne, int
-numValueTwo)
-        {
-            numValueOne = numValueOne * 2;
-            numValueTwo = numValueTwo / 2;
-        }
-
-
-        static void Depreciation(out int val)
-        {
-            val = 20000;
-            int dep = val * 5 / 100;
-            int amt = val - dep;
-            Console.WriteLine("Depreciation Amount: {0}", dep);
-            Console.WriteLine("Reduced value after depreciation: {0}", amt);
-        }
-        static int Add(int numOne, int numTwo, out float avg, ref Object o)
-        {
-            o = new Object();
-            avg = (numOne + numTwo) / 2.0f;
-            return numOne + numTwo;
-        }
-
+        
         static void Main(string[] args)
         {
             int numOne = 10;
@@ -87,6 +58,60 @@ numValueTwo)
 
             ArraySort(count);
         }
+
+
+        /// <summary>
+        /// Метод, получающий два параметра по ссылке
+        /// </summary>
+        /// <param name="numValueOne"></param>
+        /// <param name="numValueTwo"></param>
+        static void Calculate(ref int numValueOne, ref int
+numValueTwo)
+        {
+            numValueOne = numValueOne * 2;
+            numValueTwo = numValueTwo / 2;
+        }
+        /// <summary>
+        /// Метод, получающий два параметра по значению
+        /// </summary>
+        /// <param name="numValueOne"></param>
+        /// <param name="numValueTwo"></param>
+        static void Calculate(int numValueOne, int
+numValueTwo)
+        {
+            numValueOne = numValueOne * 2;
+            numValueTwo = numValueTwo / 2;
+        }
+
+        /// <summary>
+        /// Метод, получающий параметр, который необходимо проинициализировать
+        /// </summary>
+        /// <param name="numValueOne"></param>
+        /// <param name="numValueTwo"></param>
+        static void Depreciation(out int val)
+        {
+            val = 20000;
+            int dep = val * 5 / 100;
+            int amt = val - dep;
+            Console.WriteLine("Depreciation Amount: {0}", dep);
+            Console.WriteLine("Reduced value after depreciation: {0}", amt);
+        }
+
+        /// <summary>
+        /// Совмещение типов принимающих в матоде аргументов
+        /// </summary>
+        /// <param name="numOne"></param>
+        /// <param name="numTwo"></param>
+        /// <param name="avg"></param>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        static int Add(int numOne, int numTwo, out float avg, ref Object o)
+        {
+            o = new Object();
+            avg = (numOne + numTwo) / 2.0f;
+            return numOne + numTwo;
+        }
+
 
 
         /// <summary>
@@ -218,7 +243,7 @@ numValueTwo)
         /// <summary>
         /// Сортировка одномерного массива
         /// </summary>
-        /// <param name="count">Одномерны</param>
+        /// <param name="count">Одномерный массив</param>
         private static void ArraySort(int[] count)
         {
             Array.Sort(count);
