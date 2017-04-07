@@ -92,6 +92,7 @@ namespace CSharp2
                 sum += i;
             }
             Console.WriteLine("Sum = {0}",sum);
+            
         }
     }
 }
