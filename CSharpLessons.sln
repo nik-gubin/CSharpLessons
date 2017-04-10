@@ -8,6 +8,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp2", "CSharp2\CSharp2.csproj", "{62DB6313-BCE9-4200-804D-C64C799A0194}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp3", "CSharp3\CSharp3.csproj", "{AFE3E661-D96E-4F83-A0D7-BB6B0FAC6B99}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4FE79FAD-1203-46C1-801B-39404A9C3F04} = {4FE79FAD-1203-46C1-801B-39404A9C3F04}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp4", "CSharp4\CSharp4.csproj", "{4FE79FAD-1203-46C1-801B-39404A9C3F04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +32,10 @@ Global
 		{AFE3E661-D96E-4F83-A0D7-BB6B0FAC6B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFE3E661-D96E-4F83-A0D7-BB6B0FAC6B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFE3E661-D96E-4F83-A0D7-BB6B0FAC6B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FE79FAD-1203-46C1-801B-39404A9C3F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FE79FAD-1203-46C1-801B-39404A9C3F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FE79FAD-1203-46C1-801B-39404A9C3F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FE79FAD-1203-46C1-801B-39404A9C3F04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

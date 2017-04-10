@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using CSharp4;
 
 namespace CSharp3
 {
@@ -57,6 +58,9 @@ namespace CSharp3
             ArrayReverse(count);
 
             ArraySort(count);
+
+            Student s2 = new Student();
+            
         }
 
 
