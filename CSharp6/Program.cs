@@ -42,6 +42,8 @@ namespace CSharp6
             Animal a1 = d1;
             Dog d3 = (Dog)a1;
 
+
+            //приведение объекта 
             bool b = d1 is Dog;
             if (b)
             {
@@ -53,6 +55,7 @@ namespace CSharp6
                 Console.WriteLine("Не собака");
             }
 
+            //приведение объекта 
             Console.WriteLine("\n----as-----");
             Dog d4 = a1 as Dog;
             if (d4!=null)
@@ -63,6 +66,8 @@ namespace CSharp6
             {
                 Console.WriteLine("Не собака");
             }
+
+            //Тестирование скрытого метода
             Pudel p = new Pudel("");
             d1 = p;
             a1 = p;

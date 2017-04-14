@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace CSharp6
 {
+    /// <summary>
+    /// Класс, реализующий абстрактный класс и два интерфейса
+    /// </summary>
     public class Dog : Animal, IAnimal, ICloneable
     {
       public  string name;
 
+        /// <summary>
+        /// Замещение метода базового класса
+        /// </summary>
         public override void Eat()
         {
             Console.WriteLine("Собака ест");
@@ -18,6 +24,10 @@ namespace CSharp6
         public Dog(string name) {
             this.name = name;
         }
+
+        /// <summary>
+        /// Замещение астракного метода базового класс
+        /// </summary>
         public override void AnimalSound()
         {
             Console.WriteLine("gavvvv");
@@ -28,6 +38,9 @@ namespace CSharp6
             return new Dog(name);
         }
 
+        /// <summary>
+        /// Переопределение метода интерфейса
+        /// </summary>
         public void Habitat()
         {
             Console.WriteLine("Can be housed with human beings");

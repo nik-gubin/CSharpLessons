@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace CSharp6
 {
+    /// <summary>
+    /// Описание интерфейса
+    /// </summary>
     public interface IAnimal
     {
         void Habitat();
-       const string s = "";
+      
     }
 }

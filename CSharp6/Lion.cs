@@ -5,7 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CSharp6
-{
+{    
+    /// <summary>
+     /// Класс, реализующий абстрактный класс
+     /// </summary>
     public class Lion : Animal
     {
         public override void AnimalSound()

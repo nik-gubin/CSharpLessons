@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CSharp6
 {
+    /// <summary>
+    /// Описание интерфейса
+    /// </summary>
     interface ITerrestrialAnimal
     {
         void Eat();
