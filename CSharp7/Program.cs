@@ -15,7 +15,7 @@ namespace CSharp7
             int result;
             int[] arr = new int[5];
 
-            //механизv отлова исключений
+            //механизм отлова исключений
             try
             {
                 object o = new object();
@@ -44,6 +44,7 @@ namespace CSharp7
             {
                 Console.WriteLine("Finally excute");
                 int c = 0;
+                //нельзя в finally использовать возвращающие инструкции
                 // int i = 1 / c;
                 //return 0;
             }
@@ -96,11 +97,5 @@ namespace CSharp7
                 int i = 1 / c;
             }
         }
-    }
-
-    
-
- 
-
- 
+    } 
 }
