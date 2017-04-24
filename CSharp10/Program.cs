@@ -18,12 +18,16 @@ namespace CSharp10
             human p1 = new human();
             Propod pr = new Propod();
 
+
+            //Запись и чтние занных в файл
             BinaryWriter objBinaryWrite = new BinaryWriter(File.Create("D:/Test.bin"));
             byte b = 45;
             string str1 = "Billy";
             objBinaryWrite.Write(b);
             objBinaryWrite.Write(str1);
             objBinaryWrite.Close();
+
+            //чтение из файла
             BinaryReader objBinaryRead = new
             BinaryReader(File.OpenRead("d:/Test.bin"));
             Byte b2 = objBinaryRead.ReadByte();
@@ -32,7 +36,7 @@ namespace CSharp10
             Console.WriteLine(b2);
             objBinaryRead.Close();
 
-
+            //Запись и чтение из потоков (данные находятся в оперативной памяти)
             MemoryStream objMemStr = new MemoryStream();
             BufferedStream objBuffStr = new BufferedStream(objMemStr);
             objBuffStr.WriteByte((byte)100);
@@ -47,6 +51,8 @@ namespace CSharp10
             }
             Console.WriteLine("The return value for ReadByte() is {0}", objBuffStr.ReadByte());
 
+
+            //работа с файлами
             string path = @"D:\NewFile.txt";
             try
             {
@@ -76,54 +82,56 @@ namespace CSharp10
                 //Delete the file
                 objFileInfo.Delete();
 
+            }
+            catch (Exception ex) { Console.WriteLine(ex); }
 
-                try
+            //работа каталогами
+            try
+            {
+                //Set source and destination paths
+                string path1 = @"D:\Student";
+                string destPath = @"D:\NewStudent";
+                //Create a DirectoryInfo object
+                DirectoryInfo di = new DirectoryInfo(path1);
+                //Create the Directory
+                di.Create();
+                Console.WriteLine("{0} created on {1}", path1, di.CreationTime.ToString());
+                //Move the Directory
+                di.MoveTo(destPath);
+                Console.WriteLine("{0} moved to {1}", path1, destPath);
+                //Delete the directory
+                di.Delete();
+                Console.WriteLine("{0} has been deleted.", destPath);
+
+                DirectoryInfo cdir = new DirectoryInfo("C:\\");
+                DirectoryInfo[] dirs = cdir.GetDirectories();
+
+                FileInfo[] files = cdir.GetFiles();
+
+                Console.WriteLine(cdir.Name);
+                foreach (DirectoryInfo d in dirs)
                 {
-                    //Set source and destination paths
-                    string path1 = @"D:\Student";
-                    string destPath = @"D:\NewStudent";
-                    //Create a DirectoryInfo object
-                    DirectoryInfo di = new DirectoryInfo(path1);
-                    //Create the Directory
-                    di.Create();
-                    Console.WriteLine("{0} created on {1}", path1, di.CreationTime.ToString());
-                    //Move the Directory
-                    di.MoveTo(destPath);
-                    Console.WriteLine("{0} moved to {1}", path1, destPath);
-                    //Delete the directory
-                    di.Delete();
-                    Console.WriteLine("{0} has been deleted.", destPath);
 
-                    DirectoryInfo cdir = new DirectoryInfo("C:\\");
-                    DirectoryInfo[] dirs = cdir.GetDirectories();
-
-                    FileInfo[] files = cdir.GetFiles();
-
-                    Console.WriteLine(cdir.Name);
-                    foreach (DirectoryInfo d in dirs)
-                    {
-
-                        Console.WriteLine("\t" + d.Name);
-                    }
-                    foreach (FileInfo f in files)
-                    {
-
-                        Console.WriteLine("\t {0} {1} {2}", f.Name, f.CreationTime, f.LastWriteTime);
-                    }
-
-                    FileInfo fl = new FileInfo("D:\\test.txt");
-                    FileStream fs = fl.Create();
-                    fs.Close();
-                    fl.CreationTime = new DateTime(1990, 1, 31);
-                    fl.LastAccessTime = new DateTime(1990, 1, 31);
-                    fl.LastAccessTime = new DateTime(1990, 1, 31);
-                    fl.IsReadOnly = true;
-
+                    Console.WriteLine("\t" + d.Name);
                 }
-                catch (Exception ex) { Console.WriteLine(ex); }
+                foreach (FileInfo f in files)
+                {
+
+                    Console.WriteLine("\t {0} {1} {2}", f.Name, f.CreationTime, f.LastWriteTime);
+                }
+
+                FileInfo fl = new FileInfo("D:\\test.txt");
+                FileStream fs = fl.Create();
+                fs.Close();
+                fl.CreationTime = new DateTime(1990, 1, 31);
+                fl.LastAccessTime = new DateTime(1990, 1, 31);
+                fl.LastAccessTime = new DateTime(1990, 1, 31);
+                fl.IsReadOnly = true;
 
             }
             catch (Exception ex) { Console.WriteLine(ex); }
+
+
 
         }
     }
