@@ -13,6 +13,8 @@ namespace CSharp11
     {
         static void Main(string[] args)
         {
+
+            //Работа с ресурсами
             Assembly objAssembly = Assembly.GetExecutingAssembly();
             ResourceManager objResourceManage = Resource1.ResourceManager;
             // new ResourceManager("Resource1", objAssembly);
@@ -20,7 +22,7 @@ namespace CSharp11
             //string str = Resource1.const1;
             Console.WriteLine(str);
 
-
+            //создание xml файла
             string FileName = "D:\\Phone.xml";
             XmlTextWriter Writer = new XmlTextWriter(FileName, null);
             Writer.Formatting = Formatting.Indented;
@@ -54,11 +56,11 @@ namespace CSharp11
             Writer.Flush();
             Writer.Close();
 
+            //Чтение данных из XML файла
             //  String FileName = "D:\\Phone.xml";
             XmlTextReader Reader = new XmlTextReader(FileName);
             while (Reader.Read())
             {
-
                 if (Reader.NodeType == XmlNodeType.Element)
                 {
                    // Console.WriteLine("{0} {1}.", Reader.LocalName, Reader.ReadString());
@@ -74,7 +76,7 @@ namespace CSharp11
             }
             Reader.Close();
 
-            
+            //Работа с XML через DOM
             XmlDocument document = new XmlDocument();
             document.Load("D:\\Phone.xml");
             XmlNode rootNode = document.DocumentElement;
@@ -99,38 +101,33 @@ namespace CSharp11
                 Console.WriteLine("\t{0} {1}",p.Name,p.InnerText);
             }
 
-
+            //ПОиск элементов, используя XPath
             Console.WriteLine("XPath");
-            XmlNodeList numbers = rootNode.SelectNodes("//*");
+            XmlNodeList numbers = rootNode.SelectNodes("//Number");
             foreach (XmlNode n in numbers)
             {
-                if (n.LocalName!= "PhoneBook")
-                {
-                    n.InnerText = "****";
-                }
+               
                 Console.WriteLine("{0}", n.Name);
                 
             }
 
-
+            //Добавление элементов в XML
             XmlElement NewFriendsName = document.CreateElement("Name");
             NewFriendsName.InnerText = "Dorsan";
             document.DocumentElement.InsertAfter(NewFriendsName, document.DocumentElement.LastChild);
 
-
+            //Добавление элементов в XML
             XmlElement NewFriendsNumber = document.CreateElement("Number");
             NewFriendsNumber.InnerText = "21324354";
             document.DocumentElement.InsertAfter(NewFriendsNumber, document.DocumentElement.LastChild);
 
+            //Добавление элементов в XML
             XmlElement NewFriendsCity = document.CreateElement("City");
             NewFriendsCity.InnerText = "Sydney";
             document.DocumentElement.InsertAfter(NewFriendsCity, document.DocumentElement.LastChild);
+
+            //Сохранение изменений в XML-Файл
             document.Save("D:\\Phone.xml");
-
-
-
-
-
         }
     }
 }
