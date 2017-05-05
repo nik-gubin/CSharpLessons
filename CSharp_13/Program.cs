@@ -17,6 +17,7 @@ namespace CSharp13
             DeattachedADO();
         }
 
+        //Отсоединенная модель
         private static void DeattachedADO()
         {
             string connString = ConfigurationManager.ConnectionStrings["TestConnString1"].ConnectionString;
@@ -49,19 +50,24 @@ namespace CSharp13
 
 
         }
-
+        //Присоединенная модель
         private static void AttachedADO()
         {
+            //сторока подключения из файла конфигурации
             string connString = ConfigurationManager.ConnectionStrings["TestConnString1"].ConnectionString;
+            //поключение к бд
             SQLiteConnection connection = new SQLiteConnection(connString);
             // SQLiteConnection connection = new SQLiteConnection("Data Source=test.db");
             connection.Open();
+            //создание команды
             SQLiteCommand command = connection.CreateCommand();
+
             //command.CommandText = "create table  books(id integer primary key autoincrement,"
             //    + " author nvarchar(20) not null, title nvarchar(20) not null)";
             //command.ExecuteNonQuery();
 
             command.CommandText = "insert into books (author,title) values ('Толстой','Война и мир')";
+            //выполнение команды
             int r = command.ExecuteNonQuery();
             Console.WriteLine("Update rows {0}", r);
 
@@ -75,11 +81,12 @@ namespace CSharp13
             while (reader.Read())
             {
                 int id = reader.GetInt32(0);
-                // int count = reader.GetInt32(3);
+                //int count = reader.GetInt32(3);
                 string tilte = reader[2].ToString();
                 string author = reader["author"].ToString();
                 Console.WriteLine("{0} {1} {2}", id, author, tilte);
             }
+            //закрытие соединения
             connection.Close();
         }
     }
