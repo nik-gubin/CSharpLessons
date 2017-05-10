@@ -72,8 +72,6 @@ namespace CSharp13
             Console.WriteLine("Update rows {0}", r);
 
             string a = Console.ReadLine();
-
-
             //   command.CommandText = "select id,author,title from books where author='" + a + "'";
             command.CommandText = "select id,author,title from books where author=@a1";
             command.Parameters.Add(new SQLiteParameter("a1", a));
