@@ -67,6 +67,8 @@ namespace CSharp_14
             }
             m1(an);
 
+            m1(an);
+
             Order[] arrOrder = orderOrder.ToArray();
 
             var allOrders = orders.Union(orders2);
@@ -101,8 +103,7 @@ namespace CSharp_14
 
         }
 
-        public static void m1(object o) {
-            
+        public static void m1(object o) {            
             Console.WriteLine(o);
         }
     }
